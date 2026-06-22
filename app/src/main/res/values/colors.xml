@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Core inStock theme colors -->
+    <color name="instock_primary">#2E7D32</color>
+    <color name="instock_primary_dark">#1B5E20</color>
+    <color name="instock_background">#F7F9F7</color>
+    <color name="instock_surface">#FFFFFFFF</color>
+
+    <!-- Text colors -->
+    <color name="instock_text_primary">#263238</color>
+    <color name="instock_text_secondary">#607D8B</color>
+
+    <!-- Card and status colors -->
+    <color name="card_main">#EBF5E9</color>
+    <color name="notifications_permission_layout_bg">#FFF3E0</color>
+    <color name="grid_header_bg">#EEEEEE</color>
+    <color name="grid_alt_row_bg">#76A4C9DE</color>
+
+    <!-- Secondary action color used for non-primary actions like Cancel or Maybe Later. -->
+    <color name="instock_secondary_action">#607D8B</color>
+
+    <!-- Destructive action color used for delete/remove buttons. -->
+    <color name="instock_delete">#C62828</color>
+</resources>

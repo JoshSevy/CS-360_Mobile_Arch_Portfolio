@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/instock_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <!--  Main inventory screen with status and management of inventory records.  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Header element showing it's the inventory dashboard -->
+        <TextView
+            android:id="@+id/inventoryTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/inventory"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/instock_text_primary" />
+
+        <TextView
+            android:id="@+id/inventorySubtitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/inventory_sub_copy"
+            android:textColor="#546E7A"
+            android:textSize="16sp" />
+
+        <!-- Summary card to give quick insight into current inventory -->
+        <LinearLayout
+            android:id="@+id/summaryCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp" >
+
+            <!-- Total item count card populated from the current SQLite inventory records. -->
+            <LinearLayout
+                android:id="@+id/totalItemsCard"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp"
+                android:background="@drawable/card_main_background"
+                android:layout_marginEnd="8dp" >
+
+                <!-- Total item count is updated in InventoryFragment after inventory records are loaded. -->
+                <TextView
+                    android:id="@+id/totalItemsValueTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/instock_text_primary" />
+
+                <TextView
+                    android:id="@+id/totalItemsLabelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_items"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Low / no stock inventory notification -->
+            <LinearLayout
+                android:id="@+id/lowStockCard"
+                android:background="@drawable/card_warning_background"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_marginStart="8dp">
+
+                <!-- Low-stock count is updated in InventoryFragment based on item quantity and threshold. -->
+                <TextView
+                    android:id="@+id/lowStockValueTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/lowStockLabelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/low_stock"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--  Primary quick action for adding items to the inventory  -->
+        <Button
+            android:id="@+id/addItemButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_item"
+            android:textColor="@color/white"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/instock_primary"
+            tools:ignore="VisualLintButtonSize" />
+
+        <!--  Inventory Grid label so it's easier for the user to identify  -->
+        <TextView
+            android:id="@+id/inventoryListTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/inventory_list"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!--  Grid header row labels aligns with values that will be stored in DB      -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@color/grid_header_bg">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/item"
+                android:textStyle="bold"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/qty"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/location"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="@string/action"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!--  Adding recycler view to dry up the grid as well as practice with more advanced android mobile patterns -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/inventoryRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+        <!-- Secondary action for managing low / no inventory notifications -->
+        <Button
+            android:id="@+id/notificationSettingsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/inv_alert_settings"
+            android:layout_marginTop="24dp"
+            tools:ignore="VisualLintButtonSize" />
+
+    </LinearLayout>
+</ScrollView>

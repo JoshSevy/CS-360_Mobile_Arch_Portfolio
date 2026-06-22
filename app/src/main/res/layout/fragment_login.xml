@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Added scroll view so the app is still accessible on small screen sizes -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/instock_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- Add branding and sub copy purpose statement -->
+        <TextView
+            android:id="@+id/appTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/instock"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp"
+            android:textColor="@color/instock_text_primary" />
+
+        <TextView
+            android:id="@+id/appSubtitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/instock_sub_title"
+            android:textColor="#546E7A"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/usernameEditText"
+            android:layout_width="300dp"
+            android:layout_height="62dp"
+            android:layout_marginBottom="16dp"
+            android:autofillHints="username"
+            android:hint="@string/username"
+            android:inputType="text"
+            android:textColorHint="#546E7A" />
+
+        <!--  Password field uses textPassword to hide and secure the typed values -->
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="300dp"
+            android:layout_height="62dp"
+            android:layout_marginBottom="24dp"
+            android:autofillHints="password"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColorHint="#546E7A" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:backgroundTint="@color/instock_primary"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/log_in"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/createAccountButton"
+            android:backgroundTint="@color/instock_primary"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/create_account"
+            android:textColor="@color/white"
+            android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+</ScrollView>

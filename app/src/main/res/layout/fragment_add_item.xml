@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/instock_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <!-- Add item screen for creating or updating inventory records in the local database. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!--  Add Item title and subtitle (microcopy) section  -->
+        <TextView
+            android:id="@+id/addItemTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_inventory_item"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/instock_text_primary" />
+
+        <TextView
+            android:id="@+id/addItemSubtitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/add_item_subtitle"
+            android:textColor="#546E7A"
+            android:textSize="16sp" />
+
+        <!--  Item name text input for adding inventory name to inventory records  -->
+        <EditText
+            android:id="@+id/itemNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:autofillHints="name"
+            android:hint="@string/inv_item_name_hint"
+            android:inputType="textCapWords"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <!--  QTY input for adding the quantity for the item into the inventory records  -->
+        <EditText
+            android:id="@+id/itemQuantityEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:autofillHints="quantity"
+            android:hint="@string/qty_hint"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <!--  Location input for adding the location for the item into the inventory records  -->
+        <EditText
+            android:id="@+id/itemLocationEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/location_hint"
+            android:importantForAutofill="no"
+            android:inputType="textCapWords"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <!-- Low-stock threshold lets the app alert before an item reaches zero inventory. -->
+        <EditText
+            android:id="@+id/lowStockThresholdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:autofillHints="low_stock_threshold"
+            android:hint="@string/low_stock_threshold"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <!-- Optional notes input to allow users to add context to the item being added into the inventory record -->
+        <EditText
+            android:id="@+id/itemNotesEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginBottom="24dp"
+            android:hint="@string/notes_hint"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:minHeight="48dp"
+            android:minLines="3"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <!-- Saves the inventory form as a new or updated database record. -->
+        <Button
+            android:id="@+id/saveItemButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save_item"
+            android:backgroundTint="@color/instock_primary"
+            tools:ignore="VisualLintButtonSize" />
+
+        <!-- Cancel button clears the form and navigates user back to inventory dashboard without saving -->
+        <Button
+            android:id="@+id/cancelAddItemButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/instock_secondary_action"
+            android:text="@string/cancel"
+            android:textColor="#000000"
+            tools:ignore="VisualLintButtonSize" />
+
+    </LinearLayout>
+</ScrollView>

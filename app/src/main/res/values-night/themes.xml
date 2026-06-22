@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme currently light and dark theme align.
+     I am looking to come back maybe even post project to get some practice with themes-->
+    <style name="Base.Theme.InStock" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/instock_primary</item>
+        <item name="colorPrimaryDark">@color/instock_primary_dark</item>
+        <item name="colorAccent">@color/instock_primary</item>
+        <item name="android:windowBackground">@color/instock_background</item>
+        <item name="android:navigationBarColor">@color/instock_background</item>
+        <item name="android:statusBarColor">@color/instock_primary_dark</item>
+        <!-- Night-specific text and surface fallbacks -->
+        <item name="android:textColorPrimary">@color/instock_text_primary</item>
+        <item name="android:textColorSecondary">@color/instock_text_secondary</item>
+        <item name="colorSurface">@color/instock_surface</item>
+        <item name="android:colorBackground">@color/instock_background</item>
+    </style>
+
+    <!-- Night variant of the application theme wrapper so manifest reference resolves in both configurations -->
+    <style name="Theme.inStock" parent="Base.Theme.InStock">
+        <!-- Night-specific customizations may go here -->
+    </style>
+</resources>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/instock_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <!-- Manage application notifications preferences screen -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Manage notifications preferences title and subtitle -->
+        <TextView
+            android:id="@+id/notificationsTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/low_inventory_alerts"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/instock_text_primary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/low_inv_alerts_subtitle"
+            android:textColor="#546E7A"
+            android:textSize="16sp" />
+
+        <!-- Status card to provide clear information if alerts are enabled -->
+        <LinearLayout
+            android:id="@+id/permissionStatusCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/notifications_permission_layout_bg"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/permissionStatusLabelTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/permission_status"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Status text is updated from SharedPreferences when the notification screen loads. -->
+            <TextView
+                android:id="@+id/permissionStatusTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sms_alerts_are_not_currently_enabled"
+                android:textSize="15sp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Informational Section giving context to why SMS is being requested -->
+        <TextView
+            android:id="@+id/howAlertsWorkTitleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sms_how_title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/howAlertsWorkTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sms_how_content"
+            android:textSize="15sp"
+            android:layout_marginBottom="16dp"
+            tools:ignore="VisualLintLongText" />
+
+        <TextView
+            android:id="@+id/deniedPermissionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sms_how_disabled_content"
+            android:textSize="15sp"
+            android:layout_marginBottom="24dp"
+            tools:ignore="VisualLintLongText" />
+
+        <EditText
+            android:id="@+id/phoneNumberEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="phone"
+            android:hint="@string/low_stock_phone"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <Button
+            android:id="@+id/enableSmsAlertsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enable_sms_alerts"
+            tools:ignore="VisualLintButtonSize" />
+
+        <!-- Secondary action lets users continue using the app without SMS notifications. -->
+        <Button
+            android:id="@+id/maybeLaterButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/instock_secondary_action"
+            android:text="@string/maybe_later"
+            android:textColor="#000000"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+
+
+</ScrollView>
